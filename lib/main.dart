@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messanger_app_ui/domain/constant/app_themes.dart';
 import 'package:messanger_app_ui/domain/constant/cubit/themes_cubit.dart';
-import 'package:messanger_app_ui/screens/onboarding/onboarding.dart';
+import 'package:messanger_app_ui/screens/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(BlocProvider(
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               ? AppThemes.lightTheme
               : AppThemes.darkTheme,
           title: 'Messanger',
-          home: const OnBoarding(),
+          home: const OnboardingScreend(),
         );
       },
     );

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:messanger_app_ui/domain/constant/app_colors.dart';
 
@@ -29,13 +30,16 @@ class UiHelper {
     double? fontsize,
     FontWeight? fontweight,
     String? fontFamily,
+    double? letterSpacing,
     TextAlign? textAlign,
+    
     required BuildContext context,
   }) {
     return Text(
       text,
       textAlign: textAlign,
       style: TextStyle(
+        letterSpacing: letterSpacing ,
         color: color ??
             (Theme.of(context).brightness == Brightness.dark
                 ? AppColor.textDarkMode
@@ -69,6 +73,52 @@ class UiHelper {
           ),
         ),
       ),
+    );
+  }
+
+  static customTextField(
+      {required BuildContext context,
+      required String hintText,
+      required TextInputType keyboardType,
+      required TextEditingController controller}) {
+    return TextField(
+      controller: controller,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColor.hintTextDarkMode
+                : AppColor.hintTextLightMode),
+        enabledBorder: OutlineInputBorder(
+          // When text field is enabled but not focused
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(
+            color: Colors.transparent,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          // When text field is focused
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(
+            color: Colors.transparent, // Optional: Different color when focused
+          ),
+        ),
+        fillColor: Theme.of(context).brightness == Brightness.dark
+            ? AppColor.textfieldDarkMode
+            : AppColor.textfieldLightMode,
+        filled: true,
+      ),
+    );
+  }
+
+  static custonBackButton({required VoidCallback onPressed}) {
+    return IconButton(
+      icon: const Icon(
+        CupertinoIcons.back),
+      onPressed: onPressed,
     );
   }
 }

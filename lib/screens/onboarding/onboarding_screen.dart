@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messanger_app_ui/domain/constant/cubit/themes_cubit.dart';
+import 'package:messanger_app_ui/screens/login/login_screen.dart';
 import 'package:messanger_app_ui/screens/widgets/ui_helper.dart';
 
-class OnBoarding extends StatelessWidget {
-  const OnBoarding({super.key});
+class OnboardingScreend extends StatelessWidget {
+  const OnboardingScreend({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,14 @@ class OnBoarding extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: UiHelper.customButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => const LoginScreen(),
+            ),
+          );
+        },
         buttonName: "Start Messaging",
       ),
     );
