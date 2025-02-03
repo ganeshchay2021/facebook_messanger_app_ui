@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:messanger_app_ui/domain/constant/app_colors.dart';
-import 'package:messanger_app_ui/screens/profile/profile_screen.dart';
+import 'package:messanger_app_ui/screens/profile/profile.dart';
+
 import 'package:messanger_app_ui/screens/widgets/ui_helper.dart';
 import 'package:pinput/pinput.dart';
 
@@ -45,7 +46,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: UiHelper.custonBackButton(onPressed: () {
+        leading: UiHelper.customBackButton(onPressed: () {
           Navigator.pop(context);
         }),
         backgroundColor: Theme.of(context).brightness == Brightness.dark

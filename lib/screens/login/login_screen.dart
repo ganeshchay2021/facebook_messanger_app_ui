@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messanger_app_ui/domain/constant/app_colors.dart';
-import 'package:messanger_app_ui/domain/constant/cubit/themes_cubit.dart';
 import 'package:messanger_app_ui/screens/OTP/otp_screen.dart';
 import 'package:messanger_app_ui/screens/widgets/ui_helper.dart';
 
@@ -14,21 +12,13 @@ class LoginScreen extends StatelessWidget {
     TextEditingController phoneNumberController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        leading: UiHelper.custonBackButton(onPressed: () {
+        leading: UiHelper.customBackButton(onPressed: () {
           Navigator.pop(context);
         }),
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? AppColor.scafoldDark
             : AppColor.scafoldLight,
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.read<ThemesCubit>().toggledTheme();
-              },
-              icon: const Icon(
-                Icons.dark_mode_outlined,
-              ))
-        ],
+        
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),

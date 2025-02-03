@@ -114,7 +114,7 @@ class UiHelper {
     );
   }
 
-  static custonBackButton({required VoidCallback onPressed}) {
+  static customBackButton({required VoidCallback onPressed}) {
     return IconButton(
       icon: const Icon(
         CupertinoIcons.back),
