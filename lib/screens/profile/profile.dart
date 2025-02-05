@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:messanger_app_ui/domain/constant/app_colors.dart';
+import 'package:messanger_app_ui/screens/bottonnavbar/bottom_nav_bar.dart';
 import 'package:messanger_app_ui/screens/widgets/ui_helper.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -24,8 +26,16 @@ class ProfileScreen extends StatelessWidget {
             : AppColor.scafoldLight,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton:
-          UiHelper.customButton(onPressed: () {}, buttonName: "Save"),
+      floatingActionButton: UiHelper.customButton(
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const BottomNavBar(),
+                ),
+                (route) => false);
+          },
+          buttonName: "Save"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(

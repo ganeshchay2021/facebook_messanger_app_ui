@@ -32,14 +32,14 @@ class UiHelper {
     String? fontFamily,
     double? letterSpacing,
     TextAlign? textAlign,
-    
     required BuildContext context,
   }) {
     return Text(
       text,
       textAlign: textAlign,
       style: TextStyle(
-        letterSpacing: letterSpacing ,
+        overflow: TextOverflow.ellipsis,
+        letterSpacing: letterSpacing,
         color: color ??
             (Theme.of(context).brightness == Brightness.dark
                 ? AppColor.textDarkMode
@@ -79,12 +79,14 @@ class UiHelper {
   static customTextField(
       {required BuildContext context,
       required String hintText,
+      Icon? prefixIcon,
       required TextInputType keyboardType,
       required TextEditingController controller}) {
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         hintText: hintText,
         hintStyle: TextStyle(
             fontSize: 15,
@@ -116,8 +118,7 @@ class UiHelper {
 
   static customBackButton({required VoidCallback onPressed}) {
     return IconButton(
-      icon: const Icon(
-        CupertinoIcons.back),
+      icon: const Icon(CupertinoIcons.back),
       onPressed: onPressed,
     );
   }
