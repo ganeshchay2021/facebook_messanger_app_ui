@@ -15,144 +15,189 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).brightness == Brightness.dark
-              ? AppColor.scafoldDark
-              : AppColor.scafoldLight,
-          title: UiHelper.customText(text: "Chats", context: context),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.mark_chat_unread_outlined),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? AppColor.scafoldDark
+            : AppColor.scafoldLight,
+        title: UiHelper.customText(text: "Chats", context: context),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.mark_chat_unread_outlined),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert_rounded),
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 5,
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert_rounded),
-            ),
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 5,
-              ),
-              SizedBox(
-                height: 100,
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        UiHelper.assetImage(
-                            image: "assets/images/Avatar (7).png"),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        UiHelper.customText(
-                            text: "Your Story", context: context)
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: listOfChats.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: SizedBox(
-                              height: 56,
-                              width: 56,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  UiHelper.assetImage(
-                                      image: listOfChats[index].image),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  UiHelper.customText(
-                                    text: listOfChats[index].name,
-                                    context: context,
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        },
+            SizedBox(
+              height: 100,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      UiHelper.assetImage(
+                          image: "assets/images/Avatar (7).png"),
+                      const SizedBox(
+                        height: 5,
                       ),
-                    )
-                  ],
-                ),
-              ),
-              const Divider(),
-              const SizedBox(
-                height: 15,
-              ),
-              UiHelper.customTextField(
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 25,
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? AppColor.hintTextDarkMode
-                        : AppColor.hintTextLightMode,
+                      UiHelper.customText(text: "Your Story", context: context)
+                    ],
                   ),
-                  context: context,
-                  hintText: "Paceholder",
-                  keyboardType: TextInputType.text,
-                  controller: placeholderController),
-              const SizedBox(
-                height: 15,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: listOfChats.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      borderRadius: BorderRadius.circular(10),
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Row(
-                          children: [
-                            UiHelper.assetImage(
-                                image: listOfChats[index].image,
-                                height: 56,
-                                width: 56),
-                            const SizedBox(
-                              width: 15,
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: listOfChats.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: SizedBox(
+                            height: 56,
+                            width: 56,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                UiHelper.assetImage(
+                                    image: listOfChats[index].image),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                UiHelper.customText(
+                                  text: listOfChats[index].name,
+                                  context: context,
+                                )
+                              ],
                             ),
-                            Column(
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const Divider(),
+            const SizedBox(
+              height: 15,
+            ),
+            UiHelper.customTextField(
+                prefixIcon: Icon(
+                  Icons.search,
+                  size: 25,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? AppColor.hintTextDarkMode
+                      : AppColor.hintTextLightMode,
+                ),
+                context: context,
+                hintText: "Paceholder",
+                keyboardType: TextInputType.text,
+                controller: placeholderController),
+            const SizedBox(
+              height: 15,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: listOfChats.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        children: [
+                          UiHelper.assetImage(
+                              image: listOfChats[index].image,
+                              height: 56,
+                              width: 56),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                UiHelper.customText(
-                                    text: listOfChats[index].name,
-                                    context: context,
-                                    fontsize: 14,
-                                    fontweight: FontWeight.w600),
-                                UiHelper.customText(
-                                    text: listOfChats[index].lastSeen,
-                                    context: context,
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.dark
-                                        ? AppColor.hintTextDarkMode
-                                        : AppColor.hintTextLightMode,
-                                    fontsize: 12,
-                                    fontweight: FontWeight.w400)
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    UiHelper.customText(
+                                        text: listOfChats[index].name,
+                                        context: context,
+                                        fontsize: 14,
+                                        fontweight: FontWeight.w600),
+                                    UiHelper.customText(
+                                        text: listOfChats[index].day,
+                                        context: context,
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? AppColor.hintTextDarkMode
+                                            : AppColor.hintTextLightMode,
+                                        fontsize: 12,
+                                        fontweight: FontWeight.w400),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    UiHelper.customText(
+                                        text: listOfChats[index].lastSeen,
+                                        context: context,
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? AppColor.hintTextDarkMode
+                                            : AppColor.hintTextLightMode,
+                                        fontsize: 12,
+                                        fontweight: FontWeight.w400),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      height: 25,
+                                      width: 25,
+                                      child: UiHelper.customText(
+                                          text: listOfChats[index]
+                                              .numberofMsg
+                                              .toString(),
+                                          context: context,
+                                          fontsize: 14,
+                                          fontweight: FontWeight.w400),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? AppColor.textfieldDarkMode
+                                            : AppColor.textfieldLightMode,
+                                      ),
+                                    )
+                                  ],
+                                )
                               ],
-                            )
-                          ],
-                        ),
+                            ),
+                          )
+                        ],
                       ),
-                    );
-                  },
-                ),
-              )
-            ],
-          ),
-        ));
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
