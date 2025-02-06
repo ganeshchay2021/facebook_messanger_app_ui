@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:messanger_app_ui/domain/constant/app_colors.dart';
+import 'package:messanger_app_ui/screens/bottonnavbar/more/screen_mode.dart';
 import 'package:messanger_app_ui/screens/bottonnavbar/more/widget/more_options.dart';
 import 'package:messanger_app_ui/screens/widgets/ui_helper.dart';
 
@@ -79,7 +81,14 @@ class MoreScreen extends StatelessWidget {
                 MoreOptions(
                   icon: Icons.wb_sunny_outlined,
                   optionText: "Appereance",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const ScreenMode(),
+                      ),
+                    );
+                  },
                 ),
                 MoreOptions(
                   icon: Icons.notifications_outlined,
@@ -91,23 +100,22 @@ class MoreScreen extends StatelessWidget {
                   optionText: "Data Usage",
                   onTap: () {},
                 ),
-                 const Divider(
+                const Divider(
                   indent: 15,
                   endIndent: 15,
                   height: 20,
                   thickness: 0.5,
                 ),
-                 MoreOptions(
+                MoreOptions(
                   icon: Icons.help_outline,
                   optionText: "Help",
                   onTap: () {},
                 ),
-                 MoreOptions(
+                MoreOptions(
                   icon: Icons.mail_outline,
                   optionText: "Invite your friend",
                   onTap: () {},
                 )
-
               ],
             ),
           ),
